@@ -20,24 +20,19 @@ This implementation provides the core RSA functionality including:
 
 - Uses a fixed public exponent `e = 65537` (a common choice in RSA)
 
-- Computes the private exponent `d` using the modular inverse:  
-  \[
-  d \equiv e^{-1} \mod \varphi(n)
-  \]
+- Computes the private exponent `d` using the modular inverse: d = e^-1 mod φ(n)
 
 ### 🔐 Encryption / 🔓 Decryption
 
 - Messages are:
+
   - Encoded to UTF-8 bytes
   - Converted to integers for computation
-- **Encryption**:
-  \[
-  c \equiv m^e \mod n
-  \]
-- **Decryption**:
-  \[
-  m \equiv c^d \mod n
-  \]
+
+- **Encryption**: c = m^e mod n
+
+- **Decryption**: m = c^d mod n
+
 - Results are decoded back into UTF-8 strings
 
 ---
@@ -48,10 +43,13 @@ This implementation provides the core RSA functionality including:
 
 - ❌ **No padding scheme**  
   (e.g. PKCS#1 v1.5 — necessary for real-world security)
+
 - ❌ **Message size limitations**  
   Messages must be smaller than the modulus `n`
+
 - ❌ **No random prime generation**  
   Requires manual input of prime numbers
+
 - ❌ **Basic error handling**  
   Limited validation and error reporting
 
