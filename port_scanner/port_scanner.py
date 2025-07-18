@@ -61,7 +61,12 @@ def detect_services(target, ports=common_ports.keys(), mode="normal"):
         service = common_ports.get(port, "Unknown")
         results[port] = service
 
-    print("Open ports on {}: {}".format(target, open_ports))
+    print("Open TCP ports on {}: {}".format(target, open_ports))
+
+    # Write results to a file
+    with open("port_scanner/port_scan_results.txt", "a") as f:
+        f.write("[{}] Open TCP ports on {}: {}\n".format(time.strftime("%Y-%m-%d %H:%M:%S"), target, open_ports))
+
     return results
 
 
