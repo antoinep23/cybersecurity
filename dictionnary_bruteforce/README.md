@@ -44,3 +44,7 @@ Specify your wordlist (leave blank for the default rockyou.txt):
 
 This tool is intended for educational and ethical purposes only.
 Do not use it on any system, network, or data without explicit permission.
+
+---
+
+github.com/antoinep23
