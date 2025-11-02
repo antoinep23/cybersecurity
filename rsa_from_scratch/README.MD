@@ -6,13 +6,11 @@ A basic implementation of the RSA cryptographic algorithm in Python.
 
 This implementation provides the core RSA functionality including:
 
-- ✅ Key generation with user-defined prime numbers
-- 🔐 Message encryption using the public key
-- 🔓 Message decryption using the private key
+- Key generation with user-defined prime numbers
+- Message encryption using the public key
+- Message decryption using the private key
 
-## ⚙️ Technical Details
-
-### 🔑 Key Generation
+### Key Generation
 
 - Uses two prime numbers `p` and `q` to compute the modulus: n = p \* q
 

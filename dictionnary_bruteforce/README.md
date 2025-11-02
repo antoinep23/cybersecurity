@@ -1,21 +1,21 @@
-# 🛠️ Hash Brute Force Tool (Python)
+# Hash Brute Force Tool (Python)
 
 A lightweight Python script that performs a dictionary-based brute-force attack to crack hashed passwords.  
 Supports multiple hash algorithms and can automatically download the famous `rockyou.txt` wordlist if not provided.
 
-## 🚀 Features
+## Features
 
 - Supports multiple hash algorithms: `md5`, `sha1`, `sha256`, `sha512`
 - Accepts any custom wordlist or defaults to `rockyou.txt`
 - Automatically downloads `rockyou.txt` if missing
 - Clean CLI interaction and error handling
 
-## 📦 Requirements
+## Requirements
 
 - Python 3.x
 - `requests` module (`pip install requests`)
 
-## 🔧 How It Works
+## How It Works
 
 1. User specifies:
 
@@ -31,7 +31,7 @@ Supports multiple hash algorithms and can automatically download the famous `roc
 
 5. If a match is found, it prints the plaintext.
 
-## 🖥️ Usage
+## Usage
 
 ```bash
 $ python main.py
