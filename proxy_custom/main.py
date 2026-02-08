@@ -11,7 +11,7 @@ async def handle_client(reader, writer):
     print(f"Connection from {addr} has been established")
 
     while True:
-        data = await reader.read(4096)
+        data = await reader.read(8192)
         if not data:
             break
 
@@ -33,8 +33,15 @@ async def handle_client(reader, writer):
         received_data = await redirect_request(data)
 
         if received_data:
-            converted_response = convert_response(received_data)
-            writer.write(bytes(converted_response, 'utf-8'))
+            try:
+                converted_response = convert_response(received_data)
+                if isinstance(converted_response, str):
+                    converted_response = converted_response.encode('utf-8')
+                writer.write(converted_response)
+
+            except Exception:
+                writer.write(received_data)
+
             await writer.drain()
 
     writer.close()

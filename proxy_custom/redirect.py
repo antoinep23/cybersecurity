@@ -11,13 +11,20 @@ async def redirect_request(data):
         
         writer.write(data)
         await writer.drain()
-        
-        received = await reader.read(4096)
-        
-        writer.close()
-        await writer.wait_closed()
-        
-        return received.decode("utf-8")
+
+        parts = []
+        try:
+            while True:
+                chunk = await reader.read(65536)
+                if not chunk:
+                    break
+                parts.append(chunk)
+        finally:
+            writer.close()
+            await writer.wait_closed()
+
+        received = b''.join(parts)
+        return received
     
     except Exception as e:
         print(f"Failed to redirect to {server['ip']}: {e}")

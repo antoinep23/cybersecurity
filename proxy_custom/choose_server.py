@@ -50,6 +50,8 @@ async def choose_server():
     healthy_servers = await get_healthy_servers_list()
 
     if not healthy_servers:
+        print("No healthy servers found. Starting servers...")
+        
         for server in servers.values():
             command = get_run_server_command(server['port'])
             asyncio.create_task(asyncio.to_thread(lambda: os.system(command)))
