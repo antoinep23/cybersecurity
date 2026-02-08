@@ -15,7 +15,7 @@ async def handle_client(reader, writer):
         if not data:
             break
 
-        check_status = analyze_request(data)
+        check_status = analyze_request(data, address=addr)
         if check_status != "OK":
             
             if check_status == "403":

@@ -21,4 +21,4 @@ async def redirect_request(data):
     
     except Exception as e:
         print(f"Failed to redirect to {server['ip']}: {e}")
-        return None
+        return "HTTP/1.1 500 Service Unavailable\r\n\r\nUnexpected error occurred"
